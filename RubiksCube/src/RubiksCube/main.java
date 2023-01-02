@@ -1,44 +1,20 @@
 package RubiksCube;
+import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
+        String in;
+        int order;
+        Scanner sc = new Scanner(System.in);
         RubiksCube rc = new RubiksCube();
     
-        //rc.L();
-        //rc.T();
-        //System.out.println(rc.toString());
-        //System.out.println(rc.orderOf("LTTT"));
-        //System.out.println(rc.orderOfPeice("LTTT", 2, 2, 0));
-        int[][][] ret = rc.orderOfEachPeice("LTTT");
-        for(int z = 0; z < 3; ++z) {
-            for(int y = 2; y >= 0; --y) {
-                for(int x = 0; x < 3; ++x) {
-                    System.out.print(ret[x][y][z] + ", ");
-                }
-                System.out.println();
-            }
-            System.out.println();
-        }
-        //System.out.println(rc.orderOfEachPeice("LTTT"));
+        do {
+        System.out.println("input a combination of elements in the Rubiks Cube group to find their order. Enter a non valid input to leave: ");
+        in = sc.next();
+        order = rc.orderOf(in);
+        System.out.println(order);
+        } while(order != -1);
         
-        /**
-        rc.F();
-        System.out.println(rc.toString());
         
-        rc.B();
-        System.out.println(rc.toString());
-        
-        rc.L();
-        System.out.println(rc.toString());
-        
-        rc.R();
-        System.out.println(rc.toString());
-        
-        rc.T();
-        System.out.println(rc.toString());
-        
-        rc.D();
-        System.out.println(rc.toString());
-        **/
     }
 }
